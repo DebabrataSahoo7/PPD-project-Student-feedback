@@ -18,7 +18,6 @@ import questionsRoutes     from './routes/questions.routes.js';
 import publicRoutes        from './routes/public.routes.js';
 import analyticsRoutes     from './routes/analytics.routes.js';
 import notificationsRoutes from './routes/notifications.routes.js';
-import setupRoutes         from './routes/setup.routes.js';
 
 const app = express();
 
@@ -50,7 +49,6 @@ app.use('/api/v1/forms',         analyticsRoutes);
 app.use('/api/v1/questions',     questionsRoutes);
 app.use('/api/v1/public/forms',  publicRoutes);
 app.use('/api/v1/notifications', notificationsRoutes);
-app.use('/api/v1/setup',         setupRoutes);
 
 // ── Global error handler (must be last) ───────────────────────
 app.use(errorHandler);
