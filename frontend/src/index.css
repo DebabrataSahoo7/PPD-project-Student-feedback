@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Brand ─────────────────────────────────────────── */
+    --color-primary:        #6C63FF;
+    --color-secondary:      #7C3AED;
+    --color-primary-light:  #EEF2FF;
+    --color-accent:         #6C63FF;
+    --color-accent-shadow:  rgba(90,80,210,1);
+    --color-accent-glow:    rgba(108,99,255,0.35);
+
+    /* ── Surfaces ──────────────────────────────────────── */
+    --color-surface: #F8FAFC;
+    /* page background */
+    --color-surface-card: #FFFFFF;
+    /* card / panel background */
+    --color-surface-variant: #F1F5F9;
+    /* subtle tinted surface (gray-100 equiv) */
+
+    /* ── Borders ───────────────────────────────────────── */
+    --color-border: #E2E8F0;
+    /* default border (slate-200) */
+    --color-border-subtle: #F1F5F9;
+    /* hairline dividers (slate-100) */
+
+    /* ── Text ──────────────────────────────────────────── */
+    --color-text: #1E293B;
+    /* on-surface (slate-800) */
+    --color-text-muted: #64748B;
+    /* on-surface-variant (slate-500) */
+    --color-text-faint: #94A3B8;
+    /* on-surface-muted (slate-400) */
+
+    /* ── Semantic ──────────────────────────────────────── */
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+
+    /* ── Shape / Shadow ────────────────────────────────── */
+    --radius-card: 8px;
+    --radius-btn: 8px;
+    --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+    --shadow-elevated: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-surface);
+    min-height: 100dvh;
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  .material-symbols-outlined.filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+
+  /* ── Cards ─────────────────────────────────────────────── */
+  .card {
+    background: var(--color-surface-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* ── Inputs ─────────────────────────────────────────────── */
+  .field-input {
+    @apply w-full bg-surface-card border border-border rounded-lg px-3 py-2.5 text-sm text-on-surface placeholder:text-on-surface-muted focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all;
+  }
+
+  .glass-input {
+    @apply field-input;
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary/90 focus:ring-primary/40 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-surface-card text-on-surface border border-border hover:bg-surface-variant focus:ring-border active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn text-on-surface-variant hover:bg-surface-variant focus:ring-border active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply btn bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 focus:ring-red-300 active:scale-[0.98];
+  }
+
+  /* ── Badges ─────────────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold;
+  }
+
+  .badge-published {
+    @apply badge bg-emerald-50 text-emerald-700;
+  }
+
+  .badge-draft {
+    @apply badge bg-surface-variant text-on-surface-variant;
+  }
+
+  .badge-closed {
+    @apply badge bg-red-50 text-red-600;
+  }
+
+  .badge-academic {
+    @apply badge bg-indigo-50 text-indigo-700;
+  }
+
+  .badge-simple {
+    @apply badge bg-surface-variant text-on-surface-variant;
+  }
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  .page-shell {
+    @apply min-h-dvh flex flex-col bg-surface;
+  }
+
+  .page-content {
+    @apply w-full px-4 py-6 pb-24 md:pb-8 md:max-w-2xl mx-auto;
+  }
+
+  .page-content-sub {
+    @apply w-full px-4 py-6 pb-8 md:max-w-2xl mx-auto;
+  }
+
+  .page-content-wide {
+    @apply w-full px-4 py-6 pb-24 md:pb-8 md:max-w-4xl mx-auto;
+  }
+
+  .page-container {
+    @apply page-content;
+  }
+
+  /* ── Typography ─────────────────────────────────────────── */
+  .page-title {
+    @apply text-xl font-bold text-on-surface font-headline;
+  }
+
+  .section-title {
+    @apply text-base font-semibold text-on-surface font-headline;
+  }
+
+  .section-label {
+    @apply text-[10px] font-bold text-on-surface-muted uppercase tracking-widest;
+  }
+
+  .label-caps {
+    @apply section-label;
+  }
+
+  /* ── Nav items ──────────────────────────────────────────── */
+  .nav-item {
+    @apply flex flex-col items-center justify-center gap-0.5 text-on-surface-muted w-16 h-14 hover:text-primary transition-colors;
+  }
+
+  .nav-item-active {
+    @apply flex flex-col items-center justify-center gap-0.5 text-primary w-16 h-14;
+  }
+
+  /* ── Misc ───────────────────────────────────────────────── */
+  .divider {
+    @apply border-t border-border-subtle;
+  }
+
+  .progress-bar-track {
+    @apply w-full bg-surface-variant rounded-full h-2 overflow-hidden;
+  }
+}
