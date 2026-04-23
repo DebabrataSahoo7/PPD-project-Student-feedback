@@ -186,23 +186,34 @@ export default function TopBar({
           {/* Profile dropdown */}
           {profileMenuOpen && (
             <div
-              className="absolute right-0 top-[calc(100%+0.75rem)] z-50 w-[min(22rem,calc(100vw-2rem))] overflow-hidden rounded-lg border border-border bg-surface-card text-on-surface shadow-elevated"
+              className="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-52 overflow-hidden rounded-xl border border-border bg-surface-card text-on-surface shadow-elevated"
               role="menu"
             >
-              <div className="py-1.5">
+              <div className="py-1">
+                <button
+                  type="button"
+                  onClick={() => { setProfileMenuOpen(false); navigate('/change-password'); }}
+                  className="w-full px-3 py-2.5 flex items-center gap-2.5 text-left hover:bg-surface-variant transition-colors"
+                  role="menuitem"
+                >
+                  <span className="w-7 h-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-[16px]">lock_reset</span>
+                  </span>
+                  <p className="text-sm font-semibold text-on-surface">Change Password</p>
+                </button>
+
+                <div className="mx-3 border-t border-border-subtle" />
+
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="w-full px-4 py-3 flex items-center gap-3 text-left text-on-surface hover:bg-surface-variant transition-colors"
+                  className="w-full px-3 py-2.5 flex items-center gap-2.5 text-left hover:bg-surface-variant transition-colors"
                   role="menuitem"
                 >
-                  <span className="w-9 h-9 rounded-lg bg-red-50 text-red-500 border border-red-100 flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-outlined text-[20px]">logout</span>
+                  <span className="w-7 h-7 rounded-lg bg-red-50 text-red-500 flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-[16px]">logout</span>
                   </span>
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-red-600">Sign Out</p>
-                    <p className="text-xs text-on-surface-muted mt-0.5">Clear session and return to login</p>
-                  </div>
+                  <p className="text-sm font-semibold text-red-600">Sign Out</p>
                 </button>
               </div>
             </div>

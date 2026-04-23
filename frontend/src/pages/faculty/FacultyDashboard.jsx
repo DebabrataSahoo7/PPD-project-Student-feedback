@@ -53,11 +53,13 @@ export default function FacultyDashboard() {
         <div>
           <p className="text-xs text-on-surface-variant font-semibold uppercase tracking-wider">Welcome back</p>
           <h1 className="text-2xl font-bold text-on-surface font-headline mt-0.5">
-            {(() => {
-              const raw = user?.name ?? 'Faculty';
-              const stripped = raw.replace(/^(Mr\.|Mrs\.|Ms\.|Dr\.|Prof\.)\s*/i, '');
-              return stripped.split(' ')[0] || raw;
-            })()}
+            <span className="text-primary">
+              {(() => {
+                const raw = user?.name ?? 'Faculty';
+                const stripped = raw.replace(/^(Mr\.|Mrs\.|Ms\.|Dr\.|Prof\.)\s*/i, '');
+                return stripped.split(' ')[0] || raw;
+              })()}
+            </span>
           </h1>
         </div>
 

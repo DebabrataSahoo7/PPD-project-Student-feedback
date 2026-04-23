@@ -13,7 +13,7 @@ import LightBeamCard from '../../components/ui/LightBeamCard.jsx';
 const TEMPLATES = [
   {
     id: 'blank', icon: 'add', label: 'Blank Form',
-    bg: 'bg-surface-variant', iconColor: 'text-on-surface-variant',
+    bg: 'bg-surface-variant', iconColor: 'text-primary',
     mode: 'simple', title: 'Untitled Form', template: null,
   },
   {
@@ -126,13 +126,13 @@ export default function AdminHome() {
 
   return (
     <PageLayout title="Home">
-      <div className="space-y-6">
+      <div className="space-y-8">
 
         {/* Greeting */}
-        <div>
+        <div className="pb-2">
           <p className="text-xs md:text-sm text-on-surface-variant font-semibold uppercase tracking-wider">Welcome back</p>
-          <h1 className="text-2xl md:text-3xl font-bold text-on-surface font-headline mt-0.5">
-            {user?.name?.split(' ')[0] ?? 'Admin'}
+          <h1 className="text-2xl md:text-3xl font-bold text-on-surface font-headline mt-1">
+            <span className="text-primary">{user?.name?.split(' ')[0] ?? 'Admin'}</span>
           </h1>
         </div>
 
@@ -192,7 +192,8 @@ export default function AdminHome() {
 
         {/* Recent forms */}
         <section>
-          <div className="flex items-center justify-between mb-3">
+          <div className="h-px bg-border-subtle mb-8 -mx-1" />
+          <div className="flex items-center justify-between mb-4">
             <div>
               <p className="text-xs md:text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Recent forms</p>
               <p className="text-[10px] md:text-xs text-on-surface-muted mt-0.5">Right-click or hold to manage</p>

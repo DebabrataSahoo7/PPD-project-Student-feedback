@@ -34,7 +34,10 @@ export default function ChangePasswordPage() {
       // Refresh user session
       const { data } = await api.get('/auth/me');
       setAuth(token, { ...user, must_change_password: false, ...data });
-      navigate(user?.role === 'faculty' ? '/faculty' : '/admin');
+      const dest = user?.role === 'faculty' ? '/faculty'
+                 : user?.role === 'student' ? '/student'
+                 : '/admin';
+      navigate(dest);
     } catch (err) {
       toast.error(err.message || 'Failed to update password');
     } finally {

@@ -39,8 +39,8 @@ const YEARS = ['2025-26', '2024-25', '2023-24'];
 function IconBtn({ icon, onClick, title, className = '' }) {
   return (
     <button type="button" onClick={onClick} title={title}
-      className={`w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors text-on-surface-variant flex-shrink-0 ${className}`}>
-      <span className="material-symbols-outlined text-sm">{icon}</span>
+      className={`w-10 h-10 flex items-center justify-center rounded-xl hover:bg-surface-variant transition-colors text-on-surface-variant flex-shrink-0 ${className}`}>
+      <span className="material-symbols-outlined text-[22px]">{icon}</span>
     </button>
   );
 }
@@ -634,11 +634,11 @@ export default function FormBuilderPage() {
           </div>
         </div>
 
-        {/* Row 2: tabs — full width */}
-        <div className="flex border-t border-border/50">
+        {/* Row 2: tabs — centred */}
+        <div className="flex justify-center border-t border-border/50">
           {['questions', 'responses', 'settings'].map(t => (
             <button key={t} type="button" onClick={() => setTab(t)}
-              className={`flex-1 sm:flex-none px-4 sm:px-6 py-3 text-xs sm:text-sm font-medium capitalize transition-colors border-b-2 ${
+              className={`px-6 sm:px-10 py-3 text-xs sm:text-sm font-medium capitalize transition-colors border-b-2 ${
                 tab === t
                   ? 'border-primary text-primary'
                   : 'border-transparent text-on-surface-variant hover:text-on-surface hover:border-border'

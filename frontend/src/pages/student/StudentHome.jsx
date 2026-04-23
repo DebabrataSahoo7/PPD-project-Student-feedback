@@ -25,7 +25,7 @@ export default function StudentHome() {
         <div>
           <p className="text-xs text-on-surface-muted font-medium uppercase tracking-wider">Welcome back</p>
           <h1 className="text-2xl font-bold text-on-surface font-headline mt-0.5">
-            {user?.name?.split(' ')[0] ?? 'Student'}
+            <span className="text-primary">{user?.name?.split(' ')[0] ?? 'Student'}</span>
           </h1>
           {user?.registration_number && (
             <p className="text-xs text-on-surface-muted mt-0.5 font-mono">{user.registration_number}</p>

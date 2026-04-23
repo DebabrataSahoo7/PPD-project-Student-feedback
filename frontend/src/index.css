@@ -180,15 +180,15 @@
   }
 
   .page-content {
-    @apply w-full px-4 py-6 pb-24 md:pb-8 md:max-w-2xl mx-auto;
+    @apply w-full px-5 py-8 pb-28 md:pb-10 md:px-8 md:max-w-2xl mx-auto;
   }
 
   .page-content-sub {
-    @apply w-full px-4 py-6 pb-8 md:max-w-2xl mx-auto;
+    @apply w-full px-5 py-8 pb-10 md:px-8 md:max-w-2xl mx-auto;
   }
 
   .page-content-wide {
-    @apply w-full px-4 py-6 pb-24 md:pb-8 md:max-w-4xl mx-auto;
+    @apply w-full px-5 py-8 pb-28 md:pb-10 md:px-8 md:max-w-4xl mx-auto;
   }
 
   .page-container {
